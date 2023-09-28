@@ -15,6 +15,3 @@ if (validacao){
 }   else{
     console.log('Acesso NEGADO');
 }
-
-
-

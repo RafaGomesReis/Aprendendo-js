@@ -22,3 +22,29 @@ let person = {
 }
 
 console.log(person.getFullName());
+
+
+
+const defaultUser = {
+    name: '',
+    email: '',
+    level: 1
+}
+
+
+const user1 = {
+    ...defaultUser,
+    name: 'Reis',
+    email: 'raf.gomes.reis@gmail.com',
+}
+
+const adm1 = {
+    ...defaultUser,
+    name: 'adm Boladão',
+    email: 'admbolado@gmail.com',
+    level: 2
+}
+
+console.log(adm1);
+
+console.log(user1);

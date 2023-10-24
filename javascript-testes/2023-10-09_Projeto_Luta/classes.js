@@ -9,8 +9,6 @@ class Character {
     defense = 0;
 
 
-
-
     constructor(name) {
         this.name = name;
     }

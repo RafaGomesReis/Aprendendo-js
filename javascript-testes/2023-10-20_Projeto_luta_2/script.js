@@ -1,5 +1,5 @@
 const char = createKnight('Rafa');
-const monster = createLittleMonster();
+const monster = createBigMonster();
 console.log(monster.name);
 
 stage.start(
@@ -8,3 +8,6 @@ stage.start(
     document.querySelector('#char'),
     document.querySelector('#monster')
 );
+log.render(
+
+)

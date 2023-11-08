@@ -1,24 +1,51 @@
 //https://jsonplaceholder.typicode.com/posts
 
-function clicou() {
-    let requisiçao = fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
-
-    requisiçao.then((response) => {
+async function clicou() {
+    let req = await fetch(
+        "https://jsonplaceholder.typicode.com/posts/1/comments"
+    )
+    let json = await req.json();
+    
+        .then((response) => {
         return response.json();
     })
         .then((json) => {
-            alert(`Titulo do primeiro post ${json[0].title}`)
+            alert(`Titulo do primeiro post }`);
         })
-
-    alert("opa, clicou")
+        .catch((error) => {
+            console.log("Deu problem");
+            console.log(error);
+        })
+        .finally(() => {
+            alert("opa,acabou td");
+        });
 }
 
-function somar(x, y) {
-    return x + y;
+// function somar(x, y) {
+//     return x + y;
+// }
+// x = 10
+// y = 30
+// console.log(somar(x, y));
+function inserir() {
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            title: "Titulo de teste",
+            body: "Corpo de teste",
+            userId: 2,
+        }),
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log(json);
+        });
 }
-x = 10
-y = 30
-console.log(somar(x, y));
 
-
-document.querySelector('#botao').addEventListener('click', clicou)
+document.querySelector("#botao").addEventListener("click", clicou);
+document.querySelector("#button").addEventListener("click", inserir);

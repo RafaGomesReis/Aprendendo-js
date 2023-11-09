@@ -1,24 +1,24 @@
 //https://jsonplaceholder.typicode.com/posts
 
 async function clicou() {
-    let req = await fetch(
+    let response = await fetch(
         "https://jsonplaceholder.typicode.com/posts/1/comments"
-    )
-    let json = await req.json();
-    
-        .then((response) => {
-        return response.json();
-    })
-        .then((json) => {
-            alert(`Titulo do primeiro post }`);
-        })
-        .catch((error) => {
-            console.log("Deu problem");
-            console.log(error);
-        })
-        .finally(() => {
-            alert("opa,acabou td");
-        });
+    );
+    let json = await response.json();
+    alert(`Titulo do primeiro post: ${json[0].title}`);
+    // .then((response) => {
+    //     return response.json();
+    // })
+    // .then((json) => {
+    //     alert(`Titulo do primeiro post }`);
+    // })
+    // .catch((error) => {
+    //     console.log("Deu problem");
+    //     console.log(error);
+    // })
+    // .finally(() => {
+    //     alert("opa,acabou td");
+    // });
 }
 
 // function somar(x, y) {
@@ -27,8 +27,8 @@ async function clicou() {
 // x = 10
 // y = 30
 // console.log(somar(x, y));
-function inserir() {
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+async function inserir() {
+    let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -38,13 +38,16 @@ function inserir() {
             body: "Corpo de teste",
             userId: 2,
         }),
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            console.log(json);
-        });
+    });
+    let json = await response.json();
+    console.log(json);
+
+    // .then((response) => {
+    //     return response.json();
+    // })
+    // .then((json) => {
+    //     console.log(json);
+    // });
 }
 
 document.querySelector("#botao").addEventListener("click", clicou);
